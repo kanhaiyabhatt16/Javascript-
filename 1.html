@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   var a=5;
+   document.writeln(a); 
+   document.writeln("<br>");
+   {var a=5.36;
+   document.writeln(a);
+   document.writeln("<br>");
+   document.writeln("Value of a is: " + a);
+   document.writeln("<br>");
+   document.writeln("\"Kanhaiya\"");}
+   {const a=10;
+   document.writeln("<br>");
+   document.writeln("Value of a is: " + a);}
+   alert("Value of a is: " + a);
+   a= prompt("Enter the value of a: ");
+   a1=parseInt(a);
+   
+   b=prompt("Enter the value of b: ");
+   b1=parseInt(b);
+   c=a1+b1;
+   document.writeln("<br>"+"type of a is: " + typeof(a));
+   document.writeln("<br>");
+    document.writeln("Value of c is: " + c);
+    c=a1+b1;
+    document.writeln("<br>");
+    document.writeln("Value of c is: " + c);
+    d=confirm("Do you want to continue?");
+    a= Array(1,2,3,4,5);
+    document.writeln("<br>");
+    document.writeln("Value of a is: " + a);
+    document.writeln("<br>");
+    document.writeln("Value of a is: " + a[0]);
+    for(let index=0; index<a.length; index++){
+        document.writeln("<br>");
+        document.writeln("Value of a is: " + a[index]);
+    }
+    x ={Name:"Kanhaiya", Age:21, City:"Bangalore"};
+    document.writeln("<br>");
+    document.writeln("Value of x is: " + x.City);
+    document.writeln("<br>");
+    document.writeln("Value of x.name is: " + x.Name);
+    document.writeln("<br>");
+    document.writeln("Value of x is: " + x.Age);
+    document.writeln("<br>");
+    document.writeln("<br>");
+     
+    function myFunction(name) {
+        document.writeln("Hello World " + name);
+     }
+
+        n="kamal";
+        myFunction(n);
+        document.writeln("<br>");
+        n="kanhaiya";
+        myFunction(n);
+
+
+            function myFunction(name,email) {
+        document.writeln("Hello World " + name);
+        document.writeln("<br>");
+        document.writeln("Email: " + email);
+     }
+
+        n="kamal";e="kanhaiya45@gmail.com"
+        myFunction(n,e);
+        document.writeln("<br>");
+        n="kanhaiya";
+        myFunction(n);
+   function clickMe() {
+        alert("Button Clicked");
+        document.writeln("<br>");
+        document.writeln("Hello World");
+        
+    }
+    
+   </script>
+    <br><button onclick="clickMe()">Click Me</button>
+
+</body>
+</html>
