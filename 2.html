@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays and Array of Objects</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:20px;
+            background:#f4f4f4;
+        }
+        h1{
+            color:darkblue;
+        }
+        pre{
+            background:white;
+            padding:15px;
+            border:1px solid #ccc;
+            overflow-x:auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Array & Array of Objects Examples</h1>
+
+<pre id="output"></pre>
+
+<script>
+
+let out = document.getElementById("output");
+
+function print(title, value){
+    out.textContent += title + "\n";
+    out.textContent += JSON.stringify(value, null, 2) + "\n\n";
+}
+
+/* ============================
+   ARRAY METHODS (10)
+============================ */
+
+let arr = [10,20,30,40,50];
+
+print("Original Array", arr);
+
+//1. push()
+arr.push(60);
+print("1. push()", arr);
+
+//2. pop()
+arr.pop();
+print("2. pop()", arr);
+
+//3. shift()
+arr.shift();
+print("3. shift()", arr);
+
+//4. unshift()
+arr.unshift(5);
+print("4. unshift()", arr);
+
+//5. concat()
+let arr2 = [70,80];
+print("5. concat()", arr.concat(arr2));
+
+//6. slice()
+print("6. slice(1,3)", arr.slice(1,3));
+
+//7. splice()
+let spliceArr = [...arr];
+spliceArr.splice(2,1,99);
+print("7. splice()", spliceArr);
+
+//8. sort()
+let sortArr = [5,1,9,2,7];
+sortArr.sort((a,b)=>a-b);
+print("8. sort()", sortArr);
+
+//9. reverse()
+print("9. reverse()", [...sortArr].reverse());
+
+//10. map()
+print("10. map()", arr.map(num => num * 2));
+
+
+/* ============================
+   ARRAY OF OBJECTS (10)
+============================ */
+
+/* ============================
+   OBJECT METHODS ON NORMAL ARRAY (10)
+============================ */
+
+let arrObj = [10, 20, 30, 40, 50];
+
+print("Original Array", arrObj);
+
+//1. Object.keys()
+print("1. Object.keys()", Object.keys(arrObj));
+
+//2. Object.values()
+print("2. Object.values()", Object.values(arrObj));
+
+//3. Object.entries()
+print("3. Object.entries()", Object.entries(arrObj));
+
+//4. Object.assign()
+let copy = Object.assign([], arrObj);
+print("4. Object.assign()", copy);
+
+//5. hasOwnProperty()
+print("5. hasOwnProperty(2)", arrObj.hasOwnProperty(2));
+
+//6. Object.freeze()
+Object.freeze(arrObj);
+print("6. Object.freeze()", arrObj);
+
+//7. Object.isFrozen()
+print("7. Object.isFrozen()", Object.isFrozen(arrObj));
+
+//8. Object.seal()
+let arrSeal = [1,2,3];
+Object.seal(arrSeal);
+print("8. Object.seal()", arrSeal);
+
+//9. Object.isSealed()
+print("9. Object.isSealed()", Object.isSealed(arrSeal));
+
+//10. Object.getOwnPropertyNames()
+print("10. Object.getOwnPropertyNames()", Object.getOwnPropertyNames(arrObj));
+</script>
+
+</body>
+</html>
