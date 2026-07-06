@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+
+    .container {
+      width: 340px;
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    #display {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 25px 0;
+      letter-spacing: 3px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+    }
+
+    .start {
+      background: #28a745;
+    }
+
+    .pause {
+      background: #ff9800;
+    }
+
+    .reset {
+      background: #f44336;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>⏱ Stopwatch</h1>
+
+    <div id="display">00:00:00</div>
+
+    <div class="buttons">
+      <button class="start" onclick="startTimer()">Start</button>
+      <button class="pause" onclick="pauseTimer()">Pause</button>
+      <button class="reset" onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let hr = 0;
+    let min = 0;
+    let sec = 0;
+    let timer = null;
+
+    function updateDisplay() {
+      document.getElementById("display").innerHTML =
+        String(hr).padStart(2, '0') + ":" +
+        String(min).padStart(2, '0') + ":" +
+        String(sec).padStart(2, '0');
+    }
+
+    function runTimer() {
+      sec++;
+
+      if (sec == 60) {
+        sec = 0;
+        min++;
+      }
+
+      if (min == 60) {
+        min = 0;
+        hr++;
+      }
+
+      updateDisplay();
+    }
+
+    function startTimer() {
+      if (timer !== null) return;
+      timer = setInterval(runTimer, 1000);
+    }
+
+    function pauseTimer() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = null;
+      hr = 0;
+      min = 0;
+      sec = 0;
+      updateDisplay();
+    }
+
+    updateDisplay();
+  </script>
+
+</body>
+
+</html>
