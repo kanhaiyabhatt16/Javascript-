@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API GET & POST Example</title>
+</head>
+<body>
+
+    <h2>Basic API Example</h2>
+
+    <button onclick="getData()">GET Data</button>
+    <button onclick="postData()">POST Data</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        // GET Request
+        function getData() {
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("output").textContent =
+                        JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.log(error));
+        }
+
+        // POST Request
+        function postData() {
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: "Hello",
+                    body: "This is a sample post",
+                    userId: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").textContent =
+                    JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.log(error));
+        }
+    </script>
+
+</body>
+</html>
