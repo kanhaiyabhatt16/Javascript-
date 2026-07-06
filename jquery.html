@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Basic jQuery Example</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Basic jQuery Demo</h2>
+
+    <p id="text">Hello, Welcome to jQuery!</p>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <br>
+
+    <button id="change">Change Text</button>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <button id="color">Change Color</button>
+    <button id="value">Show Input</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#change").click(function () {
+                $("#text").text("Text Changed Successfully!");
+            });
+
+            $("#hide").click(function () {
+                $("#text").hide();
+            });
+
+            $("#show").click(function () {
+                $("#text").show();
+            });
+
+            $("#toggle").click(function () {
+                $("#text").toggle();
+            });
+
+            $("#color").click(function () {
+                $("#text").css("color", "red");
+            });
+
+            $("#value").click(function () {
+                alert("You entered: " + $("#name").val());
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
