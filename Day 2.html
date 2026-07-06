@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+<script>$(document).ready(function() {
+    document.write("My first j query program")});</script>
+<title>Login Form</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f2f2f2;
+}
+
+.d{
+    padding:20px;
+    border:2px solid black;
+    border-radius:10px;
+    background:white;
+    box-shadow:0px 0px 10px gray;
+}
+
+table{
+    border-collapse:collapse;
+}
+
+td{
+    padding:10px;
+}
+
+input[type="text"],
+input[type="password"]{
+    width:220px;
+    padding:8px;
+}
+
+input[type="submit"],
+input[type="reset"]{
+    width:100px;
+    padding:8px;
+    cursor:pointer;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+h2{
+    text-align:center;
+}
+
+</style>
+
+<script>
+
+function validate()
+{
+    let username=document.getElementById("name").value.trim();
+    let password=document.getElementById("password").value;
+
+    document.getElementById("msg1").innerHTML="";
+    document.getElementById("msg2").innerHTML="";
+
+    // Username Empty
+    if(username=="")
+    {
+        document.getElementById("msg1").innerHTML="Username is required";
+        alert("Please enter username");
+        return false;
+    }
+
+    // Username Length
+    if(username.length<3)
+    {
+        document.getElementById("msg1").innerHTML="Minimum 3 characters required";
+        alert("Username must be at least 3 characters");
+        return false;
+    }
+
+    // Username Pattern
+    let userPattern=/^[A-Za-z0-9]+$/;
+
+    if(!userPattern.test(username))
+    {
+        document.getElementById("msg1").innerHTML="Only letters and numbers allowed";
+        alert("Username cannot contain special characters");
+        return false;
+    }
+
+    // Password Empty
+    if(password=="")
+    {
+        document.getElementById("msg2").innerHTML="Password is required";
+        alert("Please enter password");
+        return false;
+    }
+
+    // Password Length
+    if(password.length<8)
+    {
+        document.getElementById("msg2").innerHTML="Minimum 8 characters required";
+        alert("Password must be at least 8 characters");
+        return false;
+    }
+
+    // Uppercase
+    if(!/[A-Z]/.test(password))
+    {
+        document.getElementById("msg2").innerHTML="Password must contain one uppercase letter";
+        alert("Add one uppercase letter");
+        return false;
+    }
+
+    // Lowercase
+    if(!/[a-z]/.test(password))
+    {
+        document.getElementById("msg2").innerHTML="Password must contain one lowercase letter";
+        alert("Add one lowercase letter");
+        return false;
+    }
+
+    // Number
+    if(!/[0-9]/.test(password))
+    {
+        document.getElementById("msg2").innerHTML="Password must contain one number";
+        alert("Add one number");
+        return false;
+    }
+
+    // Special Character
+    if(!/[!@#$%^&*(),.?":{}|<>]/.test(password))
+    {
+        document.getElementById("msg2").innerHTML="Password must contain one special character";
+        alert("Add one special character");
+        return false;
+    }
+
+    alert("Login Successful");
+    return true;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="d">
+
+<form action="Day 2.html" method="get" onsubmit="return validate()">
+
+<table>
+
+<tr>
+    <td colspan="2"><h2>Login Form</h2></td>
+</tr>
+
+<tr>
+    <td>Username</td>
+    <td>
+        <input type="text" id="name" name="name" placeholder="Enter Username">
+        <br>
+        <span id="msg1" class="error"></span>
+    </td>
+</tr>
+
+<tr>
+    <td>Password</td>
+    <td>
+        <input type="password" id="password" name="password" placeholder="Enter Password">
+        <br>
+        <span id="msg2" class="error"></span>
+    </td>
+</tr>
+
+<tr>
+    <td align="center">
+        <input type="submit" value="Login">
+    </td>
+
+    <td align="center">
+        <input type="reset" value="Reset">
+    </td>
+</tr>
+
+</table>
+
+</form>
+
+</div>
+
+</body>
+</html>

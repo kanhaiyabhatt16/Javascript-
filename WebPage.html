@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEURON_CORE Basic</title>
+  <style>
+    :root {
+      --bg: #05050a;
+      --cyan: #00f3ff;
+      --pink: #ff007a;
+      --card: rgba(15, 15, 25, 0.8);
+      --text: #e2e8f0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: radial-gradient(circle at 50% 50%, #101025 0%, #05050a 100%);
+    }
+    .hud-container {
+      background: var(--card);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .hud-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 15px; height: 15px;
+      border-top: 3px solid var(--pink);
+      border-left: 3px solid var(--pink);
+    }
+    .hud-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 15px; height: 15px;
+      border-bottom: 3px solid var(--pink);
+      border-right: 3px solid var(--pink);
+    }
+    h1 {
+      color: #fff;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 10px;
+      text-shadow: 0 0 10px var(--cyan);
+    }
+    .subtitle {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+    p {
+      color: #8f9bb3;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .specs {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(0, 243, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+      padding: 15px 0;
+      margin-bottom: 30px;
+    }
+    .spec-item span:first-child {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    .spec-item span:last-child {
+      font-size: 0.75rem;
+      color: #8f9bb3;
+      text-transform: uppercase;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1px solid var(--pink);
+      color: var(--pink);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: rgba(255, 0, 122, 0.1);
+      box-shadow: 0 0 15px rgba(255, 0, 122, 0.4);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="hud-container">
+    <div class="subtitle">Neural System Active</div>
+    <h1>Neuron Core</h1>
+    <p>Upgrade your biological frame with quantum neural nodes and titanium skeletal enhancements. Evolve beyond legacy biology today.</p>
+    <div class="specs">
+      <div class="spec-item">
+        <span>0.2ms</span>
+        <span>Latency</span>
+      </div>
+      <div class="spec-item">
+        <span>+320%</span>
+        <span>Dexterity</span>
+      </div>
+      <div class="spec-item">
+        <span>100Yrs</span>
+        <span>Core Life</span>
+      </div>
+    </div>
+    <a href="#" class="btn">Augment Now</a>
+  </div>
+</body>
+</html>
